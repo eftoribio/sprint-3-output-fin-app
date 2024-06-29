@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import openai
 import random
+import nltk
+
+nltk.download('stopwords') # Downloads the list of stopwords
 
 # Load the CSV file
 file_path = 'data/Financial_Terms_short.csv'
