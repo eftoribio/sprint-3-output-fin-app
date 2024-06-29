@@ -84,9 +84,23 @@ df = pd.read_csv("data/combined_data.csv").sort_values(
     'date', ascending=False
 )
 
+# Add a button for random article selection
+if st.button('Select Random Article'):
+    random_row = df.sample(n=1).iloc[0]
+    random_title = random_row['title']
+    st.session_state['selected_title'] = random_title
+
+# Use the selectbox, but initialize it with the random selection if it exists
 title = st.selectbox(
-    'Select article title', df['title'], index=None
+    'Select article title', 
+    df['title'], 
+    index=None if 'selected_title' not in st.session_state 
+    else df[df['title'] == st.session_state['selected_title']].index[0]
 )
+
+# title = st.selectbox(
+#     'Select article title', df['title'], index=None
+# )
 
 if title:
     article = df[df['title']==title].iloc[0]
