@@ -18,6 +18,15 @@ from wordcloud import WordCloud
 # nltk.download('averaged_perceptron_tagger')
 ###
 
+
+api_key = st.secrets["api_key"]
+client = openai.OpenAI(api_key=api_key)
+SKLLMConfig.set_openai_key(api_key)
+client = OpenAI(api_key=api_key)
+
+###
+
+# stop_words = stopwords.words('english') + ['u', 'says', 'said', 'says ', 'said ', 'would', 'also', 'even', 'like']
 stopwords = ['i',
  'me',
  'my',
@@ -207,14 +216,6 @@ stopwords = ['i',
  'even',
  'like']
 
-api_key = st.secrets["api_key"]
-client = openai.OpenAI(api_key=api_key)
-SKLLMConfig.set_openai_key(api_key)
-client = OpenAI(api_key=api_key)
-
-###
-
-stop_words = stopwords.words('english') + ['u', 'says', 'said', 'says ', 'said ', 'would', 'also', 'even', 'like']
 def generate_wordcloud(text, cmap='viridis', stop_words=stop_words):
     try:
         titles = df['paragraph'].str.cat(sep=' ').lower()
