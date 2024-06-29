@@ -33,6 +33,8 @@ faq_list = [
 # Streamlit app layout
 st.set_page_config(layout="wide")
 st.title("Finance Bot")
+st.sidebar.success("What do you want to learn today?")
+
 st.write("How can I help you? Ask finance questions!")
 
 # Dropdown for FAQ selection

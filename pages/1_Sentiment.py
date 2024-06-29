@@ -76,7 +76,7 @@ def summarize(text, selected_topic):
 
 st.set_page_config(layout='wide')
 st.title('Finance News Explainer')
-
+st.sidebar.success("What do you want to learn today?")
 ## TOPIC
 topics = ['stocks', 'retirement', 'insurance', 'loans', 'credit cards', 'mortgage']
 selected_topic = st.selectbox("Select a topic", topics)
