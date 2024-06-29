@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
 # nltk.download('punkt') # Downloads the Punkt tokenizer models
-nltk.download('stopwords') # Downloads the list of stopwords
+# nltk.download('stopwords') # Downloads the list of stopwords
 # nltk.download('wordnet')
 # nltk.download('averaged_perceptron_tagger')
 ###
