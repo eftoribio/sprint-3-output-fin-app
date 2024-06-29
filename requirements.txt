@@ -6,3 +6,4 @@ seaborn
 nltk
 openai
 scikit-llm
+st-annotated-text
