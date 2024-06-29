@@ -91,11 +91,15 @@ if st.button('Select Random Article'):
     st.session_state['selected_title'] = random_title
 
 # Use the selectbox, but initialize it with the random selection if it exists
+if 'selected_title' in st.session_state:
+    default_index = df.index[df['title'] == st.session_state['selected_title']].tolist()[0]
+else:
+    default_index = None
+
 title = st.selectbox(
     'Select article title', 
     df['title'], 
-    index=None if 'selected_title' not in st.session_state 
-    else df[df['title'] == st.session_state['selected_title']].index[0]
+    index=default_index
 )
 
 # title = st.selectbox(
