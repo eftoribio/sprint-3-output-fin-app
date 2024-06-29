@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import nltk
-from nltk.tokenize import word_tokenize
+# from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from skllm.config import SKLLMConfig
 from skllm.models.gpt.text2text.summarization import GPTSummarizer
@@ -14,9 +14,9 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import random
 
-nltk.download('punkt') # Downloads the Punkt tokenizer models
+# nltk.download('punkt') # Downloads the Punkt tokenizer models
 nltk.download('stopwords') # Downloads the list of stopwords
-nltk.download('wordnet')
+# nltk.download('wordnet')
 nltk.download('averaged_perceptron_tagger')
 ###
 
