@@ -54,7 +54,7 @@ def generate_summary(text, keywords):
         return "Unable to generate summary, please try again later"
 
 st.set_page_config(layout="wide")
-st.title('Tagging articles with their most relevant keywords')
+st.title('Keyword Definitions')
 st.sidebar.success("What do you want to learn today?")
 
 df = pd.read_csv("data/combined_data.csv").sort_values(
