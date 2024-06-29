@@ -3,8 +3,8 @@ pandas
 streamlit
 matplotlib
 seaborn
+wordcloud
 nltk
 openai
 scikit-llm
 st-annotated-text
-wordcloud

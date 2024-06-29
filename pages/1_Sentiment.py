@@ -14,12 +14,11 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import random
 
-nltk.download('punkt')
-nltk.download('stopwords')
-
+nltk.download('punkt') # Downloads the Punkt tokenizer models
+nltk.download('stopwords') # Downloads the list of stopwords
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
 ###
-
-st.set_page_config(layout='wide')
 
 api_key = st.secrets["api_key"]
 client = openai.OpenAI(api_key=api_key)
@@ -75,6 +74,7 @@ def summarize(text, selected_topic):
         )
     return response.choices[0].message.content
 
+st.set_page_config(layout='wide')
 st.title('Finance News Explainer')
 
 ## TOPIC
