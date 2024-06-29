@@ -53,6 +53,29 @@ def generate_summary(text, keywords):
     except:
         return "Unable to generate summary, please try again later"
 
+def prepare_annotated_text(text, keywords):
+    # Sort keywords by length (longest first) to avoid partial matches
+    sorted_keywords = sorted(keywords, key=len, reverse=True)
+    
+    # Create a regular expression pattern for all keywords
+    pattern = '|'.join(re.escape(kw) for kw in sorted_keywords)
+    
+    # Use regex to split the text, keeping separators
+    tokens = re.split(f'({pattern})', text, flags=re.IGNORECASE)
+    
+    result = []
+    for token in tokens:
+        if token.strip():  # If token is not just whitespace
+            if token.lower() in [kw.lower() for kw in sorted_keywords]:
+                result.append((token, "", "#155830"))
+            else:
+                result.append(token)
+        else:
+            # Append whitespace as is
+            result.append(token)
+    
+    return result
+
 st.set_page_config(layout="wide")
 st.title('Keyword Definitions')
 st.sidebar.success("What do you want to learn today?")
@@ -86,7 +109,8 @@ if title:
     # Generate and display summary
     st.subheader('Article Summary')
     summary = generate_summary(article['paragraph'], keywords_dict.keys())
-    st.write(summary)
+    annotated_summary = prepare_annotated_text(summary, keywords_dict.keys())
+    annotated_text(*annotated_summary)
 
     st.subheader('Full article content')    
     st.write(article['paragraph'])
