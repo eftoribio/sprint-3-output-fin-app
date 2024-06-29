@@ -54,7 +54,7 @@ def summarize(text, selected_topic):
     ###TASK###
     - Provide a comprehensive but simple summary of the news articles in less than 100 words, in such a way that a layman could easily understand. Integrate the the topic name {selected_topic} into your summary.
     - Explain how these news articles could affect the everyday life of the reader. 
-    - Provide practical finance tips and advice taking into consideration the news. 
+    - Provide practical finance tips (not advice) taking into consideration the news. 
        
     ### GENERAL GUIDELINES ###
     - In the first two tasks, write it in paragraph form. in the last task, list down your answers.
