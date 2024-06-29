@@ -9,15 +9,13 @@ from skllm.models.gpt.text2text.summarization import GPTSummarizer
 from skllm.models.gpt.classification.zero_shot import ZeroShotGPTClassifier
 import openai
 from openai import OpenAI
-from datetime import datetime
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-import random
 
 # nltk.download('punkt') # Downloads the Punkt tokenizer models
-nltk.download('stopwords') # Downloads the list of stopwords
+# nltk.download('stopwords') # Downloads the list of stopwords
 # nltk.download('wordnet')
-nltk.download('averaged_perceptron_tagger')
+# nltk.download('averaged_perceptron_tagger')
 ###
 
 api_key = st.secrets["api_key"]
